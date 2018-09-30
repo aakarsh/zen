@@ -1,10 +1,20 @@
 body { 
     font-family: arial;
-    font-size: 11px;
+    font-size: 19px;
     background-color: #faf6e8;   
 }
 
-h3 {
-    font-size: 15px;
+.chapter-title {
+    font-family: fantasy;
+    font-size: 25px;
 }
 
+.chapter-body {
+    column-count: 2;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+}
+
+hr {
+   hight: 18px;
+}
