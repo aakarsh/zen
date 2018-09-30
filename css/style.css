@@ -11,9 +11,24 @@ h2#book-title {
 }
 
 div#toc {
-    font-size: small;
+    border-style: dotted;
+    border-color: black;
+    border-width: thin;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    /* margin-top: 50px; */
+    padding-left: 8px;
+    padding-right: 180px;
+    width: 20%;
 }
 
+img#shunryu {
+    float:right;
+    /*#position: absolute; */
+    /*padding-top: 150px;*/
+    padding-right: 10%;
+    height:60%;
+}
 div#toc  ul { list-style-type:none; }
 div#toc  li { list-style-type:none; }
 
