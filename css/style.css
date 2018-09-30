@@ -6,11 +6,14 @@ body {
 
 h2 #book-title {
     font-family: fantasy;
+    font-style: oblique;
     font-size: 41px;
 }
 
 div .chapter-title {
     font-family: fantasy;
+    font-style: oblique;
+    font-variant-caps: small-caps;
     font-size: 41px;
 }
 
@@ -20,6 +23,6 @@ div .chapter-body {
     -moz-column-count: 2; /* Firefox */
 }
 
-hr.linesep {
+hr .linesep {
    hight: 18px;
 }
