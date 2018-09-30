@@ -4,17 +4,22 @@ body {
     background-color: #faf6e8;   
 }
 
-.chapter-title {
+h2 #book-title {
     font-family: fantasy;
-    font-size: 25px;
+    font-size: 41px;
 }
 
-.chapter-body {
+div .chapter-title {
+    font-family: fantasy;
+    font-size: 41px;
+}
+
+div .chapter-body {
     column-count: 2;
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
 }
 
-hr {
+hr.linesep {
    hight: 18px;
 }
