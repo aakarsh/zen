@@ -4,10 +4,20 @@ body {
     background-color: #faf6e8;   
 }
 
-h2 #book-title {
+h2#book-title {
     font-family: fantasy;
     font-style: oblique;
     font-size: 41px;
+}
+
+div#toc {
+    font-size: small;
+}
+
+div#toc  ul { list-style-type:none; }
+div#toc  li { list-style-type:none; }
+
+div#toc   ul>:first-child   {
 }
 
 div .chapter-title {
