@@ -1,6 +1,6 @@
 body { 
     font-family: arial;
-    font-size: 19px;
+    font-size: 20px;
     background-color: #faf6e8;   
 }
 
@@ -18,9 +18,20 @@ div .chapter-title {
 }
 
 div .chapter-body {
+    text-align: justify;
+    text-indent: 40;
+    column-gap: 25px; 
     column-count: 2;
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
+}
+
+div .chapter-body:first-letter {
+    font-family: fantasy;
+    font-style: oblique;
+    font-size:200%;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
 
 hr .linesep {
