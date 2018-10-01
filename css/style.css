@@ -28,14 +28,37 @@ img#shunryu {
 div#toc  ul { list-style-type:none; }
 div#toc  li { list-style-type:none; }
 
-div#toc   ul>:first-child   {
-}
 
 div .chapter-title {
     font-family: fantasy;
     font-style: oblique;
     font-variant-caps: small-caps;
     font-size: 41px;
+}
+
+h4.chapter-tagline{
+    font-family: fantasy;
+    font-size: 15px;
+    font-style: oblique;
+    width: 45%;
+    text-align: justify;
+    margin-top: 70px;
+    margin-bottom: 41px;
+}
+
+
+h4.chapter-tagline .first-word {
+    margin-right: 12px;
+    font-variant-caps: small-caps;
+    font-size: 30px;
+    color: crimson;
+    font-weight: bold;
+}
+
+h4.chapter-tagline .first-word :first-letter {
+    font-variant-caps: small-caps;
+    font-size: 30px;
+    font-style: normal;
 }
 
 div .chapter-body {
