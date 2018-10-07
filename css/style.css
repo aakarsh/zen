@@ -1,7 +1,6 @@
 body { 
     font-family: arial;
     font-size: 20px;
-    background-color: #faf6e8;   
 }
 
 h2#book-title {
@@ -34,6 +33,7 @@ div .chapter-title {
     font-style: oblique;
     font-variant-caps: small-caps;
     font-size: 41px;
+    padding-left:15%;
 }
 
 h4.chapter-tagline{
@@ -43,6 +43,7 @@ h4.chapter-tagline{
     text-align: justify;
     margin-top: 70px;
     margin-bottom: 41px;
+    padding-left:15%;
     width: 40%;
 }
 
@@ -63,9 +64,11 @@ h4.chapter-tagline .first-word:first-letter {
 div .chapter-body {
     text-align: justify;
     text-indent: 40;
+    width: 60%; 
+    padding-left:15%;
     column-gap: 25px; 
-    column-count: 2;
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    column-count: 1;
+    -webkit-column-count: 1; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
 }
 
