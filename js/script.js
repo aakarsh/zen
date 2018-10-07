@@ -1,4 +1,22 @@
-Lib = { 
+lib = { 
+    log: function(...args) { 
+        console.log(...args);
+    },
+    map: function(sequence, mappingFunction) {
+        let retval = [];
+        for(let s of sequence) { 
+            retval.push(mappingFunction(s));
+        }
+        return retval;
+    },
+    filter: function(sequence, filterFunction) {
+        let retval = [];
+        for(let s of sequence) { 
+            if(filterFunction(s))
+                retval.push(s)
+        }
+        return retval;
+    },
     putChar: function (c, times) {
         let retval = ''
             for (let i = 0 ; i < times; i++) { 
@@ -16,12 +34,12 @@ Lib = {
     },
     printChessBoard: function () {
         for (let i = 0 ; i < 8; i++) {
-            console.log(this.cycleChars(i%2, ["#","_"],8))
+            this.log(this.cycleChars(i%2, ["#","_"],8))
         }
     },
     printPyramid: function () {
         for (let i = 0 ; i < 10; i++) {
-            console.log(this.putChar('*',i));
+            this.log(this.putChar('*',i));
         }
     },
     /**
@@ -35,20 +53,13 @@ Lib = {
         if (exponent == 0) return 1;
         else return base * this.power(base, exponent-1)
     },
-    sequence: function(start,end, inc) { 
+    range: function(start,end, step) { 
         let retval = [];
-        if (inc == undefined) 
-            inc = 1
-        for(let i = start; i < end; i += inc)
+        if (step == undefined) 
+            step = 1
+        for(let i = start; i < end; i += step)
             retval.push(i);
        return retval; 
-    },
-    map: function(sequence, mapping_function) {
-        let retval = [];
-        for(let s of sequence) { 
-            retval.push(mapping_function(s));
-        }
-        return retval;
     },
     zip: function(s1,s2) { 
         let retval = [];
@@ -62,15 +73,15 @@ Lib = {
         
         return retval;
     },
-    powers: function (base, start, end) {
-        return this.map(this.sequence(start, end), (n) => this.power(base,n))
+    powerSequence: function (base, start, end) {
+        return this.map(this.range(start, end), (n) => this.power(base,n))
     },
     /**
      * string interpolation example
      */
     interpolate: function (n) { 
         for( let i = 0 ; i < n; i++ ) {
-            console.log(`string interpolation example ${i}`);
+            this.log(`string interpolation example ${i}`);
         }
     },
     memo: function (func) {
@@ -90,25 +101,30 @@ Lib = {
         let i = 1;
 
         for (let key of keys) { 
-            console.log("%d. %o", i ,key);
+            this.log("%d. %o", i ,key);
             i += 1;
         }
         return keys;
+    },
+    powerSequences: function(powers, nterms) { 
+        let retval = [];
+        for (let p of powers) {
+            retval.push(this.powerSequence(p,0,nterms));
+        }
+        return retval
     },
     main: function () {
         this.printPyramid() ;
         this.printChessBoard();
         const cube = x => x * square(x);
         const square = x => x * x;
-        console.log(square(10));
-        console.log(cube(10));
-        console.log(this.multiplier(10)(10));
-        console.log("%o", this.powers(2,0,10));
-        console.log("%o", this.powers(3,0,10));
-        console.log("%o", this.powers(5,0,10));
+        this.log(square(10));
+        this.log(cube(10));
+        this.log(this.multiplier(10)(10));
+        this.log("%o", this.powerSequence(2,0,10));
+        this.log("%o", this.powerSequence(3,0,10));
+        this.log("%o", this.powerSequence(5,0,10));
         this.interpolate(10);
     }
 } // App
-
-Lib.main();
-
+lib.main();
