@@ -1,4 +1,4 @@
-App = { 
+Lib = { 
     putChar: function (c, times) {
         let retval = ''
             for (let i = 0 ; i < times; i++) { 
@@ -35,11 +35,41 @@ App = {
         if (exponent == 0) return 1;
         else return base * this.power(base, exponent-1)
     },
-    powers: function ( base, start , end) {
-        let retval = []
-            for(let i = start ; i < end; i++ )
-                retval = retval.concat(this.power(base,i))
-                    return retval
+    sequence: function(start,end, inc) { 
+        let retval = [];
+        if (inc == undefined) 
+            inc = 1
+        for(let i = start; i < end; i += inc)
+            retval.push(i);
+       return retval; 
+    },
+    map: function(sequence, mapping_function) {
+        let retval = [];
+        for(let s of sequence) { 
+            retval = retval.concat(mapping_function(s));
+        }
+        return retval;
+    },
+    zip: function(s1,s2) { 
+
+        let retval = [];
+        let a = [];
+        let b = [];
+        
+        if (s1.length > s2.length) {
+            a = s1;
+            b = s2;
+        } else { 
+            b = s1;
+            a = s2;
+        }
+        for(let i = 0 ; i < b.length; i++) 
+            retval.push([a[i], b[i]]);
+        
+        return retval;
+    },
+    powers: function (base, start, end) {
+        return this.map(this.sequence(start, end), (n) => this.power(base,n))
     },
     /**
      * string interpolation example
@@ -50,7 +80,9 @@ App = {
         }
     },
     memo: function (func) {
+
         let v = {}
+
         return (n) => { 
             if (v.n == undefined) {
                 return v[n]
@@ -60,9 +92,13 @@ App = {
         }
     },
     dir: function (o) {
-        let keys = Object.keys(o);
-        for(let i = 0 ; i < keys.length; i++) { 
-            console.log("%d. %o", i ,keys[i]);
+
+        let keys = Object.keys(o).sort();
+        let i = 1;
+
+        for (let key of keys) { 
+            console.log("%d. %o", i ,key);
+            i += 1;
         }
         return keys;
     },
@@ -80,5 +116,6 @@ App = {
         this.interpolate(10);
     }
 } // App
-App.main();
+
+Lib.main();
 
