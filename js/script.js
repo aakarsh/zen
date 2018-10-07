@@ -46,24 +46,18 @@ Lib = {
     map: function(sequence, mapping_function) {
         let retval = [];
         for(let s of sequence) { 
-            retval = retval.concat(mapping_function(s));
+            retval.push(mapping_function(s));
         }
         return retval;
     },
     zip: function(s1,s2) { 
-
         let retval = [];
-        let a = [];
-        let b = [];
+        let minSize = Math.min(s1.length , s2.length);
+
+        let a = s1.slice(0,minSize); 
+        let b = s2.slice(0,minSize); 
         
-        if (s1.length > s2.length) {
-            a = s1;
-            b = s2;
-        } else { 
-            b = s1;
-            a = s2;
-        }
-        for(let i = 0 ; i < b.length; i++) 
+        for(let i = 0 ; i < a.length; i++) 
             retval.push([a[i], b[i]]);
         
         return retval;
@@ -92,7 +86,6 @@ Lib = {
         }
     },
     dir: function (o) {
-
         let keys = Object.keys(o).sort();
         let i = 1;
 
