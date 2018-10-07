@@ -64,7 +64,7 @@ h4.chapter-tagline .first-word:first-letter {
 div .chapter-body {
     text-align: justify;
     text-indent: 40;
-    width: 60%; 
+    width: 50%; 
     padding-left:15%;
     column-gap: 25px; 
     column-count: 1;
